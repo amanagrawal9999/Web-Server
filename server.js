@@ -27,9 +27,9 @@ app.use((req,res,next)=>{
   next();
 });
 
-app.use((req,res,next)=>{
+/*app.use((req,res,next)=>{
   res.render('Maintenance.hbs');
-});
+});*/
 app.use(express.static(__dirname+"/public"));
 
 app.get("/",(req,res)=>{
@@ -45,6 +45,12 @@ app.get("/about",(request,response)=>{
     pageBody:"lowercase"
   });
 })
+
+app.get("/projects",(req,res)=>{
+  res.render('projects.hbs',{
+    pageTitle:"Projects"
+  })
+});
 
 app.listen(port,()=>{
   console.log("Server is up on "+port);
